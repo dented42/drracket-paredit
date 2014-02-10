@@ -192,7 +192,7 @@
              (send ed get-forward-sexp fw1)) sp]
           [else (loop (send ed find-up-sexp sp))])))
 
-(define-shortcut ("c:right" "c:s:0" "c:]") (paredit-slurp-forward ed evt)
+(define-shortcut ("c:right" "c:s:0" "c:m:]") (paredit-slurp-forward ed evt)
   (define sp (send ed get-start-position))
   (and-let* ([up (find-up-sexp-slurp-forward ed sp)]
              [end (send ed get-forward-sexp up)]
@@ -208,7 +208,7 @@
           [(send ed get-backward-sexp sp) sp]
           [else (loop (send ed find-up-sexp sp))])))
 
-(define-shortcut ("c:m:left" "c:s:9" "c:[") (paredit-slurp-backward ed evt)
+(define-shortcut ("c:m:left" "c:s:9" "c:m:[") (paredit-slurp-backward ed evt)
   (define sp (send ed get-start-position))
   (and-let* ([start (find-up-sexp-slurp-backward ed sp)]
              [bw (send ed get-backward-sexp start)]
